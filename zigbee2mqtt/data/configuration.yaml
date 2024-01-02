@@ -1,0 +1,41 @@
+homeassistant: true
+permit_join: false
+mqtt:
+  base_topic: zigbee2mqtt
+  server: mqtt://mosquitto:1883
+serial:
+  adapter: ezsp
+  port: >-
+    /dev/serial/by-id/usb-Nabu_Casa_SkyConnect_v1.0_5695b488db93ed11ab8d82f23b20a988-if00-port0
+frontend:
+  port: 8080
+advanced:
+  network_key:
+    - 56
+    - 9
+    - 144
+    - 168
+    - 254
+    - 50
+    - 3
+    - 85
+    - 184
+    - 139
+    - 111
+    - 43
+    - 241
+    - 81
+    - 108
+    - 99
+  homeassistant_legacy_entity_attributes: false
+  legacy_api: false
+  legacy_availability_payload: false
+device_options:
+  legacy: false
+devices:
+  '0x94deb8fffe712417':
+    friendly_name: Siren
+  '0x00158d0005d25e66':
+    friendly_name: ZLinky
+  '0x00158d00091af5f5':
+    friendly_name: Main door sensor
