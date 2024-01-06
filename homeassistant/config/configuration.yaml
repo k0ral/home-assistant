@@ -10,3 +10,27 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 notify: !include notifications.yaml
+
+mqtt:
+  - siren:
+      unique_id: heiman_siren
+      name: Heiman siren
+      icon: mdi:alarm-light
+      support_volume_set: false
+      support_duration: false
+      available_tones:
+        - burglar
+        - fire
+        - emergency
+        - police_panic
+        - fire_panic
+        - emergency_panic
+      command_topic: "zigbee2mqtt/Siren/set"
+      payload_on: "burglar"
+      payload_off: "stop"
+      command_template: '{"warning": {"duration": 900, "mode": "{{ value }}", "strobe": true} }'
+      command_off_template: '{"warning": {"duration": 0, "mode": "{{ value }}", "strobe": false} }'
+      qos: 1
+      retain: false
+      optimistic: true
+      
